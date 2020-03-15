@@ -1,0 +1,14 @@
+
+# BEGIN BackUpWordPress
+# Строки между `BEGIN BackUpWordPress` и `END BackUpWordPress` были созданы автоматически.
+# Они могут быть изменены только фильтрами WordPress.
+# Все изменения между этими отметками будут перезаписаны.
+# Этот файл .htaccess гарантирует, что другие люди не могут загрузить Ваши файлы резервных копий.
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{QUERY_STRING} !key=0278ebdcff359d8dc55d9b4600ee0077
+RewriteRule (.*) - [F]
+</IfModule>
+
+# END BackUpWordPress
