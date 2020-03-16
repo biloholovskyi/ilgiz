@@ -96,7 +96,7 @@ get_header();
 <!-- /picture -->
 
 <!-- catalog -->
-<section class="catalog main">
+<section class="catalog main" id="catalog">
 	<div class="container">
 		<h2 class="title">
 			Каталог репродукций
@@ -193,18 +193,27 @@ get_header();
 
 	<div class="slider-wrap">
 		<div class="owl-carousel owl-theme">
-			<div class="item">
-				<img src="<?php echo get_template_directory_uri().'/img/slider1.jpg'; ?>" alt="">
-			</div>
-			<div class="item">
-				<img src="<?php echo get_template_directory_uri().'/img/slider1.jpg'; ?>" alt="">
-			</div>
-			<div class="item">
-				<img src="<?php echo get_template_directory_uri().'/img/slider1.jpg'; ?>" alt="">
-			</div>
-			<div class="item">
-				<img src="<?php echo get_template_directory_uri().'/img/slider1.jpg'; ?>" alt="">
-			</div>
+		<?php
+                    $args = array(
+                    'numberposts' => -1, // если -1 то выводит все
+                    'orderby' => 'date',
+                    'order' => 'DESC',
+                    'post_type' => 'slider', // тип поста
+                    'suppress_filters' => true,
+                    );
+
+                    $posts = get_posts($args);
+
+                    foreach ($posts as $post) {
+                    setup_postdata($post);
+                    ?>
+                    <div class="item" >
+						<img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>" alt="">
+					</div>
+                    <?php
+                    }
+                    wp_reset_postdata(); // сброс
+                ?>
 		</div>
 	</div>
 	<!-- /.slider-wrap -->
@@ -220,7 +229,11 @@ get_header();
 				“В хрущёвках Гимранова есть что-то человеческое, слишком человеческое”
 			</h2>
 			<div class="about__photo">
-				<img src="<?php echo get_template_directory_uri().'/img/gimranov-photo.jpg'; ?>" alt="">
+			
+			<?php $photo = get_field ('photo'); ?>			
+			
+			<img src="<?php echo $photo; ?>" alt="" >
+				
 			</div>
 			<!-- /.about__photo -->
 			<div class="about__content">
@@ -335,11 +348,7 @@ get_header();
 				</div>
 				<!-- /.offer__delivery-row -->
 				<p class="offer__delivery-text">
-					Доставка по России осуществляется логистическими компаниями. Стоимость доставки рассчитывается по тарифам логистических компаний и оплачивается покупателем отдельно. GAIFULIN GALLERY гарантирует упаковку картин, обеспечивающую их целостность и сохранность.
-					<br><br>
-					Самовывоз из офиса GAIFULIN GALLERY.
-					<br><br>
-					Подарочная упаковка оплачивается отдельно.
+				<?php the_field('offer'); ?>
 				</p>
 			</div>
 			<!-- /.offer__delivery -->
@@ -350,7 +359,7 @@ get_header();
 </section>
 <!-- /.offer -->
 
-<section class="contacts">
+<section class="contacts" id="contacts">
 	<div class="container">
 		<div class="contacts-wrap">
 			<div class="contacts__blocks">
@@ -358,25 +367,25 @@ get_header();
 				<div class="contacts__block">
 					<p class="contacts__block-title">Телефон</p>
 					<!-- /.contacts__block-title -->
-					<a href="tel:+380664742281">+38 (066) 474 22 81</a>
+					<a href="tel:<?php the_field('tel') ?>"><?php the_field('tel') ?></a>
 				</div>
 				<!-- /.contacts__block -->
 				<div class="contacts__block">
 					<p class="contacts__block-title">Адрес</p>
 					<!-- /.contacts__block-title -->
-					<p class="contacts__block-adress">г. Москва, 1-й Басманный пер., д. 3, стр. 1</p>
+					<p class="contacts__block-adress"><?php the_field('address'); ?></p>
 				</div>
 				<!-- /.contacts__block -->
 				<div class="contacts__block">
 					<p class="contacts__block-title">Почта</p>
 					<!-- /.contacts__block-title -->
-					<a href="mailto:stasmihaylov228@gmail.com">stasmihaylov228@gmail.com</a>
+					<a href="mailto:<?php the_field('email'); ?>"><?php the_field('email'); ?></a>
 				</div>
 				<!-- /.contacts__block -->
 				<div class="hero__links">
-					<a href="#">Почта</a>
-					<a href="#">WhatsApp</a>
-					<a href="#">Telegram</a>
+					<a href="mailto:<?php the_field('email'); ?>">Почта</a>
+					<a href="<?php the_field('whatshapp'); ?>">WhatsApp</a>
+					<a href="<?php the_field('telegram'); ?>">Telegram</a>
 				</div>
 				<!-- /.hero__links -->
 			</div>

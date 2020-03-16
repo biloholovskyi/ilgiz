@@ -26,10 +26,10 @@
         
             <ul class="navbar__menu">
                 <li class="menu__item">
-                    <a href="#">Каталог</a>
+                    <a href="#catalog" class="js-scroll">Каталог</a>
                 </li>
                 <li class="menu__item">
-                    <a href="#">Контакты</a>
+                    <a href="#contacts" class="js-scroll" >Контакты</a>
                 </li>
                 <li class="menu__item">
                     <button class="menu__call">
