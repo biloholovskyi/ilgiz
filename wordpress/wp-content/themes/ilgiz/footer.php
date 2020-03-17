@@ -1,6 +1,6 @@
 <div class="contacts__footer">
 			<p class="contacts__footer-title">Ильгиз Гимранов</p>
-			<p class="contacts__footer-text">© Либерально-демократическая партия России 1989-2019. Все права защищены</p>
+			<p class="contacts__footer-text">© Официальный интернет-магазин репродукций 1989-2019. Все права защищены</p>
 		</div>
 		<!-- /.contacts__footer -->
 	</div>

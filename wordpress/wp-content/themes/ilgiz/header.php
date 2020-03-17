@@ -32,10 +32,10 @@
                     <a href="#contacts" class="js-scroll" >Контакты</a>
                 </li>
                 <li class="menu__item">
-                    <button class="menu__call">
+                    <a href="<?php the_field( 'whatsapp' ); ?>" target="_blank" class="menu__call">
                         Связаться с нами
                         <img src="<?php echo get_template_directory_uri().'/img/wa-logo.svg'; ?>" alt="" class="menu__call-img">
-                    </button>
+                    </a>
                 </li>
             </ul>
             <!-- /.navbar__menu -->
