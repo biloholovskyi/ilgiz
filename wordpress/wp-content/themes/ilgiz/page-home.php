@@ -427,7 +427,7 @@ get_header();
     <div class="modal">
       <div class="modal-close"></div>
       <div class="modal-img">
-        <img src="<?php echo get_template_directory_uri(); ?>/img/catalog1.jpg" alt="gallery">
+
       </div>
       <div class="modal-content">
         <div class="modal-text">

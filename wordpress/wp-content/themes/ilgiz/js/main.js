@@ -51,7 +51,7 @@ $('.catalog__block').on('click', function () {
   const price = current.attr('data-price');
 
   // передать данные на модалку
-  $('.modal-img img').attr('src', img);
+  $('.modal-img').css('background-image', 'url(' + img + ')');
   $('.modal-text h2').html(title);
   $('.modal-tech').html(tech);
   $('.modal-size').html(size);
